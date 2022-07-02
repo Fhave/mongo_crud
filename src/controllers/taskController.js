@@ -86,7 +86,7 @@ exports.updateTask = async (req,res) => {
           message: "No Task updated"
         });
 
-        return res.status(500).json({
+        return res.status(200).json({
           success: true,
           message: "User Updated",
           task: update,
@@ -106,7 +106,7 @@ exports.updateTask = async (req,res) => {
 exports.deleteTask = async (req,res) => {
    try {
     let id = { _id: req.params.id};
-      let deleted = await Task.findOneAndDelete(id, user, {new: true});
+      let deleted = await Task.findOneAndRemove(id);
 
       if(!deleted)
         return res.status(404).json({
@@ -114,13 +114,14 @@ exports.deleteTask = async (req,res) => {
           message: "No Task deleted"
         });
 
-        return res.status(500).json({
+        return res.status(200).json({
           success: true,
           message: "User deleted",
         }); 
       } catch (err) {
     res.status(500).json({
       success: false,
+      message: "Server Error",
       error: err.message,
     });
   }

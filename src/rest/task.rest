@@ -1,0 +1,30 @@
+@url = "http://localhost:3000/"
+
+GET http://localhost:3000/task HTTP/1.1
+
+###
+GET http://localhost:3000/flight/f513f332-ce80-41cf-85fe-d0c4f8157a1c  HTTP/1.1
+
+### 
+POST http://localhost:3000/task HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "kjhgcx",
+  "description": "poiujhgfdgvhbhj"
+}
+
+
+###
+PUT http://localhost:3000/flight/f513f332-ce80-41cf-85fe-d0c4f8157a1c  HTTP/1.1
+Content-Type: application/json
+
+{
+"title": "flight to Hawaii",
+"time": "5pm",
+"price": "26500",
+"date": "27-06-2022"
+}
+
+###
+DELETE http://localhost:3000/flight/f513f332-ce80-41cf-85fe-d0c4f8157a1c HTTP/1.1

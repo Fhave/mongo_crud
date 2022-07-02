@@ -13,15 +13,16 @@ exports.getTasks = async (req,res) => {
       res.status(200).json({
         success: true,
         message: "All Tasks",
-        tasks: tasks,
+        tasks,
       });
     } catch (err) {
       res.status(500).json({
         success: false,
+        message: "Server Error",
         error: err.message,
       });
     }
-  }
+  };
 
 // get a task detail
 exports.getTask = async (req,res) => {
@@ -35,13 +36,14 @@ exports.getTask = async (req,res) => {
         })
       }
       res.status(200).json({
-        success: false,
+        success: true,
         message: "Task found",
         task,
       });
     } catch (err) {
       res.status(500).json({
         success: false,
+        message: "Server Error",
         error: err.message,
       });
     }
@@ -58,7 +60,7 @@ exports.addTask = async (req,res) => {
           message: "No Task created"
         })
       }
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: "Task created",
         task: created,
@@ -76,7 +78,7 @@ exports.updateTask = async (req,res) => {
   try {
     let id = { _id: req.params.id};
       let task = await req.body;
-      let update = await Task.findOneAndUpdate(id, user, {new: true});
+      let update = await Task.findOneAndUpdate(id, task, {new: true});
 
       if(!update)
         return res.status(404).json({
@@ -92,6 +94,7 @@ exports.updateTask = async (req,res) => {
       } catch (err) {
     res.status(500).json({
       success: false,
+      message: "Server Error",
       error: err.message,
     });
   }

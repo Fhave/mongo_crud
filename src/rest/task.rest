@@ -3,7 +3,7 @@
 GET http://localhost:3000/task HTTP/1.1
 
 ###
-GET http://localhost:3000/task/  HTTP/1.1
+GET http://localhost:3000/task  HTTP/1.1
 
 ### 
 POST http://localhost:3000/task HTTP/1.1
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
   "title": "kjhgcdddx",
-  "description": "pokfdrfghjkl;'kiujhgfdgvhbhj"
+  "description": "pokfdrfghjklkiujhgfdgvhbhj"
 }
 
 ###

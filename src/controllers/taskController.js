@@ -1,5 +1,4 @@
-const {tasks} =  require("../models/task");
-const {v4:uuid} = require("uuid");
+const Task =  require("../models/task");
 
 // get all task
 exports.getTasks = async (req,res) => {

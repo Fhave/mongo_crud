@@ -14,6 +14,7 @@ exports.getTasks = async (req,res) => {
         success: true,
         message: "All Tasks",
         tasks,
+        count:tasks.length
       });
     } catch (err) {
       res.status(500).json({

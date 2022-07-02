@@ -1,7 +1,5 @@
 const express = require('express');
 const connect = require('./config/database');
-const tasks = require("./controllers/taskController");
-const models = require("./models/task");
 const taskRoutes = require("./router/taskRoute");
 
 connect()
